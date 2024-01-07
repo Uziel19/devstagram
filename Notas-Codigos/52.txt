@@ -1,0 +1,16 @@
+    <footer class="text-center p-5 text-gray-500 font-bold uppercase">
+<!--Uso de la directiva  
+        DevStagram - Todos los derechos reservados @php echo date('Y') @endphp-->
+
+        {{-- helpers son fn que podemos usar dentro de nuestros templates de laravel --}}
+
+        {{-- now es un obj de fechas que existe en blade --}}
+
+        DevStagram - Todos los derechos reservados {{ now()->year}}
+
+    </footer>
+
+
+   <!-- {{1 + 1}} Esto es php asi se coloca en blade (Laravel lo procesa como tal)(esta sintaxis solo es para imprimir)-->
+
+   <!-- mantener los nombres cortos de nuestras vista (una palabra) -->

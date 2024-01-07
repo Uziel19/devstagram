@@ -1,0 +1,44 @@
+
+<nav>
+
+<a href="/">Principal</a>
+<a href="/nosotros">Nosotros</a>
+<a href="/tienda">Tienda</a>
+<a href="/contacto">Contacto</a>
+
+
+
+</nav>
+
+<h1>@yield('titulo')</h1> <!--Yield (es una directiva) registra esto como un contenedor-->
+
+
+<hr>
+
+
+@yield('contenido')
+
+
+
+----------------------------------------------------------
+
+<!-- (Cuando se vea una fn con un @ eso lo hace una Directiva en blade (aqui no es necesario ; ))
+//Directiva para utilizar un layout principal
+    //para trabajar con carpetas en laravel asi se realiza  -->
+@extends('layouts.app') <!--// esta directiva apunta directamente a la carpeta views -->
+
+<!--manera de utilizar el yield para inyectar contenido dentro de este mismo-->
+
+@section('titulo') 
+
+Página Principal
+
+@endsection
+
+
+
+@section('contenido')
+
+Contenido de esta página
+
+@endsection

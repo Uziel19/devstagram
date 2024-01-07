@@ -1,0 +1,45 @@
+
+            {{-- count es una fn para que cuente cuantos posts tenemos --}}
+@if ($posts->count()) {{-- si hay almenos un post-- || after $user-> posts->count()}}
+
+{{-- mostramos la info que se obtuvo de la bd y que esta contenida en la variable posts  --}}
+
+{{-- Se crean columnas con respecto al tamaño --}}
+<div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"> 
+
+ @foreach ( $posts as $post )
+
+ <div>
+
+    {{-- le mandamos el route para que identifique a que post le estamos dando click --}}
+
+    {{-- este post es un obj  --}}
+    
+     <a href="{{ route('posts.show',['post' => $post, 'user' => $post->user])}}">
+
+          <img src="{{ asset('uploads') . '/' .  $post->imagen }}" alt="Imagen del post {{ $post->titulo}}">
+
+     </a>
+
+ </div>
+     
+ @endforeach
+</div>
+
+    <div class="my-10">
+
+
+        {{-- unicamente se va agregar tailwind en los componentes que tu le digas que se quiere agregar tailwind (esta paginacion no esta en una vista de blade a pesar de que aqui esta la funcionalidad |El template o la plantilla viene en otro lugar)  --}}
+
+        {{-- user->posts // las coleciones de este tipo no se pueden paginar --}}
+        {{-- por default se tiene la paginacion de tailwind --}}
+         {{$posts->links('pagination::tailwind')}} {{--De esta forma automaticamente laravel va a paginar los registros (paginacion con los estilos de tailwind)--}}
+
+    </div>
+
+
+@else
+
+    <p class="text-gray-600 uppercase text-sm text-center font-bold">No hay posts</p>
+    
+@endif

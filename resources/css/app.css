@@ -1,0 +1,6 @@
+/*Directivas de tailwind*/
+
+/*Son paquetes , utilidades que tiene tailwind*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
